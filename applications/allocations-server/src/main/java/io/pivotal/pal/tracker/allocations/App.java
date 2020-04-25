@@ -11,6 +11,8 @@ import io.pivotal.pal.tracker.allocations.ProjectClient;
 
 import java.util.TimeZone;
 
+import static org.springframework.boot.SpringApplication.*;
+
 @EnableEurekaClient
 @SpringBootApplication
 @ComponentScan({"io.pivotal.pal.tracker.allocations", "io.pivotal.pal.tracker.restsupport"})
@@ -18,7 +20,7 @@ public class App {
 
     public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-        SpringApplication.run(App.class, args);
+        run(App.class, args);
     }
     ProjectClient projectClient(
         RestOperations restOperations,
